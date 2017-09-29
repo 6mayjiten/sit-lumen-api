@@ -20,7 +20,7 @@ class ContactController extends Controller{
 			
 			//print_r($request->all()->contact);
 			print_r($request->all()['contact']);
-			foreach(json_encode(json_decode($request->all()['contact'])) as $value) {
+			foreach($request->all()['contact'] as $value) {
 			    foreach($value->phoneNumbers as $contactPhone){
 					// replace space and +
 					$valueOfConMob = str_replace(' ','',$contactPhone->value);
