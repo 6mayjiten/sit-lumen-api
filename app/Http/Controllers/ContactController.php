@@ -17,7 +17,7 @@ class ContactController extends Controller{
 		$user = User::find($request->all()['sitId']);
 		if($user!=null)
 		{
-			print_r(json_decode($request->all()['contact']));
+			//print_r(json_decode($request->all()['contact']));
 			foreach(json_decode($request->all()['contact']) as $value) {
 			    foreach($value->phoneNumbers as $contactPhone){
 					// replace space and +
