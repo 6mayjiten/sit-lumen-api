@@ -12,7 +12,7 @@ class UserController extends Controller{
 	}
 
 	public function store(Request $request){
-		//$this->validateRequest($request);
+		$this->validateRequest($request);
 		//$users = User::all();  get all user
 		$data = array(
 					'login'=>1000000001+sizeof(User::all()),
@@ -20,7 +20,7 @@ class UserController extends Controller{
 					'password'=> Hash::make($request->get('password')),
 					'mobile'=>'+'.str_replace(' ','',$request->get('mobile'))
 				);
-		$this->validateRequest($data);
+		// /$this->validateRequest($data);
 		$user = User::create($data);
 		if($user!=null){
 			$sendMsg = new SendSMS();
