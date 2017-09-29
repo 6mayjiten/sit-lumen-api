@@ -58,6 +58,19 @@ $app->middleware([
     App\Http\Middleware\CorsMiddleware::class,
 ]);
 
+// for sending large json data from ajax use data atribute like this :
+
+$http({
+        method: 'POST',
+        url: url,
+        data:$.param({'contact':angular.toJson(conList)}),
+        headers: {
+            'Authorization': 'Bearer ' + $scope.accessToken,
+            'Content-Type': 'application/x-www-form-urlencoded'
+        }
+    })
+
+
 need to be check
 => use App/Contact in AuthorizeServiceProvider so Contact can be authorize.
 ### Contribution guidelines ###
