@@ -17,9 +17,10 @@ class ContactController extends Controller{
 		$user = User::find($request->all()['sitId']);
 		if($user!=null)
 		{
+			
 			print_r($request->all()->contact);
 			print_r($request->all()['contact']);
-			foreach(json_decode($request->all()['contact']) as $value) {
+			foreach(json_encode(json_decode($request->all()['contact'])) as $value) {
 			    foreach($value->phoneNumbers as $contactPhone){
 					// replace space and +
 					$valueOfConMob = str_replace(' ','',$contactPhone->value);
