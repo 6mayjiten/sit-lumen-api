@@ -15,7 +15,7 @@ class ContactTable extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('parent_id')->unsigned();
+            $table->integer('parent_id');
             $table->index('parent_id');
             $table->foreign('parent_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('user_id')->unsigned();
