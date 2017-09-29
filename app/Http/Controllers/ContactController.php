@@ -24,7 +24,7 @@ class ContactController extends Controller{
 					$valueOfConMob = str_replace(' ','',$contactPhone->value);
 					$valueOfConMob = str_replace('+','',$contactPhone->value);
 					// check contact number associated with any user or not
-					$conIsUser = User::where('mobile', '=', $contactPhone->value)->first();
+					$conIsUser = User::where('mobile', '=', "+".$valueOfConMob)->first();
 					if(sizeof($conIsUser)<1 || $conIsUser==null)
 					{
 						
