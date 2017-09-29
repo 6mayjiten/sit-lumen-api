@@ -12,15 +12,13 @@ class ContactController extends Controller{
 
 	public function store(Request $request){
 		$conArray = [];
-		//echo $request->all()['sitId']."<br>";
-		//print_r($request->all()['contact']);
 		$user = User::find($request->all()['sitId']);
+		//print_r(json_decode($request->all()['contact']));
 		if($user!=null)
 		{
-			
 			//print_r($request->all()->contact);
-			print_r($request->all()['contact']);
-			foreach($request->all()['contact'] as $value) {
+			//print_r(json_decode($request->all()['contact']));
+			foreach(json_decode($request->all()['contact']) as $value) {
 			    foreach($value->phoneNumbers as $contactPhone){
 					// replace space and +
 					$valueOfConMob = str_replace(' ','',$contactPhone->value);
@@ -61,7 +59,7 @@ class ContactController extends Controller{
 			if(sizeof($conArray)>0){
 				$contact = Contact::insert($conArray);
 			}
-			return $this->success("success", 201);
+			return 1;
 		}
 		else{
 			return $this->error("User Not Registerd",401);
