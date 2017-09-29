@@ -19,7 +19,7 @@ class ContactTable extends Migration
             $table->foreign('parent_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->integer('user_id')->unsigned();
             $table->string('usershare_phone');
-            $table->foreign('usershare_phone')->references('mobile')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            // $table->foreign('usershare_phone')->references('mobile')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->string('name');
             $table->string('phone');
             $table->string('type');
